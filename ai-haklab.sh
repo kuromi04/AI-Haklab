@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# AI-Haklab Pro v16.0 - Cyber-Guardian
+# AI-Haklab Pro v16.5 - Cyber-Guardian
 # Agente de Pentesting con Soporte de Voz y Reportes
 
 CONFIG_FILE="$HOME/.ai-haklab/config.json"
@@ -18,14 +18,13 @@ elif [ "$1" == "/update" ]; then
     exit 0
 elif [ "$1" == "/guardian" ]; then
     echo -e "\e[1;31m[*] Iniciando Modo Guardián (Monitoreo de Red)...\e[0m"
-    # Lógica de guardian integrada
     proot-distro login debian -- sh -c "python3 -c 'print(\"Guardian en escucha activa...\")'"
     exit 0
 fi
 
-# Carga de Config
-PROVIDER=\$(jq -r '.current_provider' "\$CONFIG_FILE")
-API_KEY=\$(jq -r ".providers.\"\$PROVIDER\".api_key" "\$CONFIG_FILE")
+# Carga de Configuración (Corregida)
+PROVIDER=$(jq -r '.current_provider' "$CONFIG_FILE")
+API_KEY=$(jq -r ".providers.\"$PROVIDER\".api_key" "$CONFIG_FILE")
 
-# Lanzar Motor
-proot-distro login debian -- sh -c "export DEEPSEEK_API_KEY=\$API_KEY; export GOOGLE_API_KEY=\$API_KEY; export PYTHONWARNINGS=ignore; python3 ~/.ai-haklab-motor.py \"\$@\""
+# Lanzar Motor en Debian
+proot-distro login debian -- sh -c "export DEEPSEEK_API_KEY=$API_KEY; export GOOGLE_API_KEY=$API_KEY; export PYTHONWARNINGS=ignore; python3 ~/.ai-haklab-motor.py \"$@\""
