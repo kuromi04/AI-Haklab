@@ -1,0 +1,65 @@
+{
+  "current_provider": "deepseek",
+  "providers": {
+    "deepseek": {
+      "name": "DeepSeek (Default)",
+      "api_key": "",
+      "base_url": "https://api.deepseek.com",
+      "model": "deepseek-chat"
+    },
+    "gemini": {
+      "name": "Google Gemini",
+      "api_key": "",
+      "base_url": "google",
+      "model": "gemini-2.0-flash-lite"
+    },
+    "groq": {
+      "name": "Groq (Llama 3)",
+      "api_key": "",
+      "base_url": "https://api.groq.com/openai/v1",
+      "model": "llama-3.3-70b-versatile"
+    },
+    "openai": {
+      "name": "OpenAI (GPT-4o)",
+      "api_key": "",
+      "base_url": "https://api.openai.com/v1",
+      "model": "gpt-4o"
+    },
+    "anthropic": {
+      "name": "Anthropic (Claude)",
+      "api_key": "",
+      "base_url": "anthropic",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "openrouter": {
+      "name": "OpenRouter",
+      "api_key": "",
+      "base_url": "https://openrouter.ai/api/v1",
+      "model": "meta-llama/llama-3.1-8b-instruct:free"
+    },
+    "mistral": {
+      "name": "Mistral AI",
+      "api_key": "",
+      "base_url": "https://api.mistral.ai/v1",
+      "model": "mistral-small-latest"
+    },
+    "together": {
+      "name": "Together AI",
+      "api_key": "",
+      "base_url": "https://api.together.xyz/v1",
+      "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    },
+    "perplexity": {
+      "name": "Perplexity (OSINT)",
+      "api_key": "",
+      "base_url": "https://api.perplexity.ai",
+      "model": "sonar-reasoning"
+    },
+    "huggingface": {
+      "name": "Hugging Face",
+      "api_key": "",
+      "base_url": "https://api-inference.huggingface.co/v1",
+      "model": "meta-llama/Llama-3.2-3B-Instruct"
+    }
+  }
+}
