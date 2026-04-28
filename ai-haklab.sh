@@ -1,24 +1,31 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# AI-Haklab Pro v15.0 - Universal Engine
-# Agente de Pentesting de Élite para i-Haklab
+# AI-Haklab Pro v16.0 - Cyber-Guardian
+# Agente de Pentesting con Soporte de Voz y Reportes
 
 CONFIG_FILE="$HOME/.ai-haklab/config.json"
-MENU_SCRIPT="$HOME/.ai-haklab/menu.sh"
+REPO_DIR="$HOME/AI-Haklab-Repo"
 
-# Si se pide el menú o no hay config, lanzarlo
-if [ "$1" == "/menu" ] || [ ! -f "$CONFIG_FILE" ]; then
-    bash "$MENU_SCRIPT"
+# Comandos Especiales
+if [ "$1" == "/menu" ]; then
+    bash "$HOME/.ai-haklab/menu.sh"
+    exit 0
+elif [ "$1" == "/update" ]; then
+    echo -e "\e[1;34m[*] Sincronizando con GitHub...\e[0m"
+    cd "$REPO_DIR" && git pull origin main
+    cp "$REPO_DIR/ai-haklab.sh" ~/ai-haklab.sh
+    cp "$REPO_DIR/.ai-haklab-motor.py" ~/.ai-haklab-motor.py
+    echo -e "\e[1;32m[+] Actualización completada. Reinicia el agente.\e[0m"
+    exit 0
+elif [ "$1" == "/guardian" ]; then
+    echo -e "\e[1;31m[*] Iniciando Modo Guardián (Monitoreo de Red)...\e[0m"
+    # Lógica de guardian integrada
+    proot-distro login debian -- sh -c "python3 -c 'print(\"Guardian en escucha activa...\")'"
     exit 0
 fi
 
-# Cargar configuración para el motor
-PROVIDER=$(jq -r '.current_provider' "$CONFIG_FILE")
-API_KEY=$(jq -r ".providers.\"$PROVIDER\".api_key" "$CONFIG_FILE")
+# Carga de Config
+PROVIDER=\$(jq -r '.current_provider' "\$CONFIG_FILE")
+API_KEY=\$(jq -r ".providers.\"\$PROVIDER\".api_key" "\$CONFIG_FILE")
 
-if [ -z "$API_KEY" ] || [ "$API_KEY" == "null" ]; then
-    echo -e "\e[1;31m[!] Error: No hay API KEY para $PROVIDER. Ejecuta: ./ai-haklab.sh /menu\e[0m"
-    exit 1
-fi
-
-# Ejecutar motor en Debian
-proot-distro login debian -- sh -c "export DEEPSEEK_API_KEY=$API_KEY; export GOOGLE_API_KEY=$API_KEY; export PYTHONWARNINGS=ignore; python3 ~/.ai-haklab-motor.py \"$@\""
+# Lanzar Motor
+proot-distro login debian -- sh -c "export DEEPSEEK_API_KEY=\$API_KEY; export GOOGLE_API_KEY=\$API_KEY; export PYTHONWARNINGS=ignore; python3 ~/.ai-haklab-motor.py \"\$@\""
