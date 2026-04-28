@@ -3,13 +3,13 @@
   "providers": {
     "deepseek": {
       "name": "DeepSeek (Default)",
-      "api_key": "",
+      "api_key": "TU_LLAVE_AQUI",
       "base_url": "https://api.deepseek.com",
       "model": "deepseek-chat"
     },
     "gemini": {
       "name": "Google Gemini",
-      "api_key": "",
+      "api_key": "TU_LLAVE_AQUI",
       "base_url": "google",
       "model": "gemini-2.0-flash-lite"
     },
