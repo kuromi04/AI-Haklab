@@ -1,33 +1,16 @@
-# 🕵️ AI-Haklab
-**AI-Haklab** es un agente de pentesting autónomo diseñado para correr en dispositivos móviles mediante Termux. Utiliza el motor de **Shell-GPT** potenciado por **Google Gemini 1.5 Flash** e integrado profundamente con la suite **i-Haklab**.
+# 🕵️ AI-Haklab v9.0 (Eficacia Máxima)
+**AI-Haklab** es un agente de pentesting inteligente optimizado para el ahorro de tokens y ejecución de alto rendimiento en Termux.
 
-## 🚀 Características
-- **Ejecución Autónoma:** Capacidad para realizar escaneos, análisis y reportes sin intervención manual constante.
-- **Integración Nativa:** Acceso directo a `nmap`, `metasploit`, `sqlmap` y más herramientas de i-Haklab.
-- **Optimizado para Móvil:** Configurado para manejar las limitaciones de recursos y renderizado de Android.
-- **Inteligencia Gemini:** Basado en el modelo más rápido y eficiente de Google para respuestas técnicas precisas.
+## 🚀 Mejoras en v9.0
+- **Motor Lite:** Integración nativa con `gemini-2.0-flash-lite` para velocidad extrema.
+- **Context Awareness:** Detección automática de IP y entorno local.
+- **Token Saver:** Algoritmo de compresión de historial para reducir el consumo de la API.
+- **UI Profesional:** Interfaz minimalista con soporte Markdown.
 
-## 🛠️ Requisitos
-- Termux (última versión).
-- i-Haklab suite instalada.
-- API Key de Google Gemini.
-- Proot-Distro (Debian).
-
-## 📥 Instalación
-1. Descarga el lanzador:
-   ```bash
-   curl -O https://raw.githubusercontent.com/[TU-USUARIO]/AI-Haklab/main/ai-haklab.sh
-   chmod +x ai-haklab.sh
-   ```
-2. Ejecuta:
-   ```bash
-   ./ai-haklab.sh
-   ```
-
-## 📖 Uso
-Habla con AI-Haklab en lenguaje natural:
-- *"Escanea mi red local en busca de puertos 80 y 443."*
-- *"Analiza este binario en busca de vulnerabilidades de buffer overflow."*
+## 📥 Uso
+```bash
+./ai-haklab.sh
+```
 
 ---
-Desarrollado con ❤️ para la comunidad de seguridad móvil.
+Propiedad de [kuromi04](https://github.com/kuromi04)
