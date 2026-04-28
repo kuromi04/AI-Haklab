@@ -1,5 +1,5 @@
 # 🕵️ AI-Haklab
-**AI-Haklab** es un agente de pentesting autónomo diseñado para correr en dispositivos móviles mediante Termux. Utiliza el motor de **Open Interpreter** potenciado por **Google Gemini 1.5 Flash** e integrado profundamente con la suite **i-Haklab**.
+**AI-Haklab** es un agente de pentesting autónomo diseñado para correr en dispositivos móviles mediante Termux. Utiliza el motor de **Shell-GPT** potenciado por **Google Gemini 1.5 Flash** e integrado profundamente con la suite **i-Haklab**.
 
 ## 🚀 Características
 - **Ejecución Autónoma:** Capacidad para realizar escaneos, análisis y reportes sin intervención manual constante.
