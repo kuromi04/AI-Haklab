@@ -10,6 +10,8 @@ from rich.text import Text
 from rich.live import Live
 from rich.spinner import Spinner
 from backup import create_backup
+from stats_utils import get_stats
+from validation_utils import ConfigValidator
 
 # AI-Haklab Pro v17.0 - OODA Tactical Edition
 console = Console()
@@ -29,39 +31,18 @@ CONFIG_PATH = "/data/data/com.termux/files/home/.ai-haklab/config.json"
 REPORTS_DIR = "/data/data/com.termux/files/home/AI-Haklab-Reports"
 os.makedirs(REPORTS_DIR, exist_ok=True)
 
+# Session Metadata
+SESSION_START = datetime.now()
+
 def speak(text):
     try:
         clean = text.replace('`', '').replace('*', '').replace('[', '').replace(']', '')
         subprocess.run(['termux-tts-speak', clean], stderr=subprocess.DEVNULL)
     except: pass
 
-def get_stats():
-    TOOLS_LIST_PATH = "/data/data/com.termux/files/home/.local/etc/i-Haklab/Tools/listoftools"
-    try:
-        with open(TOOLS_LIST_PATH, 'r') as f:
-            tools = [l.strip() for l in f if l.strip()]
-        inst = sum(1 for t in tools if subprocess.getstatusoutput(f"which {t}")[0] == 0)
-        
-        # Check Engram
-        engram_status = "[bold green]ONLINE[/bold green]" if subprocess.getstatusoutput("which engram")[0] == 0 else "[bold red]OFFLINE[/bold red]"
-        
-        # Check Battery (Termux-API)
-        try:
-            batt_data = json.loads(subprocess.getoutput("termux-battery-status"))
-            batt_pct = batt_data.get('percentage', 0)
-            batt_color = "green" if batt_pct > 30 else "yellow" if batt_pct > 15 else "red"
-            batt_status = f"[bold {batt_color}]{batt_pct}%[/bold {batt_color}]"
-        except: batt_status = "[bold yellow]N/A[/bold yellow]"
-        
-        # Check VPN (tun0 interface)
-        vpn_check = subprocess.getstatusoutput("ip addr show tun0")[0]
-        vpn_status = "[bold green]SECURED[/bold green]" if vpn_check == 0 else "[bold red]EXPOSED[/bold red]"
-        
-        return inst, len(tools), engram_status, batt_status, vpn_status
-    except: return 0, 0, "[bold red]ERR[/bold red]", "[bold red]ERR[/bold red]", "[bold red]ERR[/bold red]"
-
-# Cargar Configuración
-with open(CONFIG_PATH, 'r') as f: config = json.load(f)
+# Cargar y Validar Configuración
+validator = ConfigValidator(CONFIG_PATH)
+config = validator.validate()
 
 def get_client(provider_key):
     p_data = config['providers'][provider_key]
@@ -104,13 +85,18 @@ def select_brain(user_input):
 
 def generate_report(history):
     """Generates a professional tactical report at the end of the session."""
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    session_end = datetime.now()
+    timestamp = session_end.strftime("%Y%m%d_%H%M%S")
     report_file = f"{REPORTS_DIR}/intrusion_report_{timestamp}.md"
     
-    # Simple logic to ask the AI to summarize the report
+    # Metadata and Header
     report_content = f"""# 🛡️ Reporte Táctico de Intrusión
 **Operador:** @kuromi04
-**Fecha:** {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+**Inicio:** {SESSION_START.strftime("%Y-%m-%d %H:%M:%S")}
+**Fin:** {session_end.strftime("%Y-%m-%d %H:%M:%S")}
+**Duración:** {str(session_end - SESSION_START).split('.')[0]}
+**Proveedor:** {config['current_provider']}
+**Modelo:** {config['providers'][config['current_provider']]['model']}
 **Laboratorio:** i-Haklab (Ivam3)
 **Comunidad:** ivam3bycinderella
 
@@ -135,6 +121,13 @@ def generate_report(history):
             response = client.chat.completions.create(model=p_data['model'], messages=summary_history, stream=False)
             report_content += response.choices[0].message.content
         
+        # Append Full History Logs
+        report_content += "\n\n---\n\n## 📋 Registro Cronológico (Logs)\n"
+        for msg in history:
+            if msg['role'] == 'system': continue
+            role_label = "🟢 [OPERADOR]" if msg['role'] == 'user' else "⚪ [ASISTENTE]"
+            report_content += f"\n### {role_label}\n{msg['content']}\n"
+
         with open(report_file, "w") as f:
             f.write(report_content)
         return report_file
