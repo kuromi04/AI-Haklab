@@ -102,6 +102,45 @@ def select_brain(user_input):
     client, data = get_client('gemini')
     return client, data, "FALLBACK (Gemini)"
 
+def generate_report(history):
+    """Generates a professional tactical report at the end of the session."""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_file = f"{REPORTS_DIR}/intrusion_report_{timestamp}.md"
+    
+    # Simple logic to ask the AI to summarize the report
+    report_content = f"""# 🛡️ Reporte Táctico de Intrusión
+**Operador:** @kuromi04
+**Fecha:** {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+**Laboratorio:** i-Haklab (Ivam3)
+**Comunidad:** ivam3bycinderella
+
+---
+
+## 📝 Resumen de la Operación
+"""
+    # Create a summary prompt for the AI
+    summary_history = history + [{"role": "user", "content": "Genera un resumen técnico de nuestra sesión de hoy para un reporte profesional. Clasifica las acciones según la metodología MITRE ATT&CK vista en nuestros conocimientos. Sé quirúrgico y breve."}]
+    
+    # We use the current strategy brain to generate the report
+    client, p_data, _ = select_brain("generar reporte")
+    
+    try:
+        if p_data['base_url'] == "google":
+            import google.generativeai as genai
+            model = genai.GenerativeModel(p_data['model'])
+            messages = [{"role": "user", "parts": [m['content']]} for m in summary_history if m['role'] != 'system']
+            response = model.generate_content(messages)
+            report_content += response.text
+        else:
+            response = client.chat.completions.create(model=p_data['model'], messages=summary_history, stream=False)
+            report_content += response.choices[0].message.content
+        
+        with open(report_file, "w") as f:
+            f.write(report_content)
+        return report_file
+    except Exception as e:
+        return f"Error al generar reporte: {str(e)}"
+
 def chat():
     # Proactive Backup (Gentle-AI style)
     create_backup("/data/data/com.termux/files/home/.ai-haklab", "/data/data/com.termux/files/home/.ai-haklab/backups")
@@ -126,7 +165,10 @@ def chat():
             
             if not user_input.strip(): continue
             if user_input.lower() in ['salir', 'exit', 'quit']:
-                speak("Desconexión del nodo. Generando reporte de intrusión.")
+                speak("Operación terminada. Generando reporte táctico basado en MITRE ATT&CK.")
+                with console.status("[bold cyan]Compilando inteligencia...[/bold cyan]"):
+                    path = generate_report(history)
+                console.print(f"[bold green][+] Reporte guardado en:[/bold green] {path}")
                 break
             
             # SDD: Selección dinámica del cerebro
