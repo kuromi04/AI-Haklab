@@ -1,4 +1,4 @@
-# 🕵️ AI-Haklab Pro v17.0
+# 🕵️ AI-Haklab Pro v17.5
 > **The Ultimate Tactical AI Copilot for i-Haklab Laboratory.**
 
 ![Status](https://img.shields.io/badge/Status-Active-green?style=for-the-badge)
