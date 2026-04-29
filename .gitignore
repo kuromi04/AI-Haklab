@@ -1,0 +1,12 @@
+# Credenciales y Sesiones
+config.json
+*.key
+.env
+
+# Reportes Locales
+AI-Haklab-Reports/
+*.md
+
+# Python
+__pycache__/
+*.pyc

@@ -1,0 +1,5 @@
+openai
+google-generativeai
+rich
+anthropic
+termux-api

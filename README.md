@@ -1,33 +1,37 @@
 # 🕵️ AI-Haklab Pro v17.0
-> **The Ultimate AI-Powered Pentesting Suite for i-Haklab Laboratory.**
+> **The Ultimate Tactical AI Copilot for i-Haklab Laboratory.**
 
-![i-Haklab Banner](https://img.shields.io/badge/Arsenal-i--Haklab-blue?style=for-the-badge&logo=linux)
-![OODA Tactical Engine](https://img.shields.io/badge/AI--Engine-DeepSeek-magenta?style=for-the-badge)
-![Termux Optimized](https://img.shields.io/badge/Platform-Termux-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-green?style=for-the-badge)
+![Engine](https://img.shields.io/badge/Engine-OODA--Tactical-blue?style=for-the-badge)
+![Security](https://img.shields.io/badge/Security-Advanced-red?style=for-the-badge)
 
-## ⚡ Descripción
-**AI-Haklab Pro** no es solo un script; es un agente de ciberseguridad táctica que integra el motor de **DeepSeek** con el arsenal completo de **i-Haklab** de @ivam3. Diseñado para ofrecer una interfaz minimalista, técnica y educativa para auditores de seguridad.
-
----
-
-## 🚀 Características de Élite
-- 🧠 **Cerebro Universal:** Soporta DeepSeek, Gemini, Groq, Anthropic y más.
-- 🛠️ **Arsenal Awareness:** Detección dinámica de herramientas instaladas en el Hub de i-Haklab.
-- 🛡️ **Tono Pentester Senior:** Respuestas directas, técnicas y educativas.
-- ⚡ **Minimalist Hacker UI:** Interfaz limpia con animaciones de encriptación y banners profesionales.
-- 📦 **Instalador de Un Paso:** Configuración automática en cualquier entorno Termux.
+## ⚡ El Nuevo Estándar en Pentesting con IA
+**AI-Haklab Pro** es un sistema de inteligencia táctica diseñado para operar en conjunto con el laboratorio **i-Haklab** de @ivam3. A diferencia de otros agentes, AI-Haklab Pro aplica el **Ciclo OODA** (Observe, Orient, Decide, Act) y asume un rol de **Copiloto**, tratando al usuario como el **Piloto** de la operación.
 
 ---
 
-## 🛠️ Requisitos
-1. [Termux](https://termux.dev/)
-2. [i-Haklab Laboratory](https://github.com/ivam3/i-Haklab) (Instalado y configurado)
-3. API Key de DeepSeek o similar.
+## 🛠️ Arquitectura del Sistema
+```text
+AI-Haklab/
+├── src/           # Motores de IA y Scripts Core
+├── config/        # Prompts Tácticos y Configuración
+├── assets/        # Banners y Recursos Visuales
+├── docs/          # Wiki y Metodología OODA
+└── install.sh     # Instalador Automatizado
+```
 
 ---
 
-## 📥 Instalación Rápida
-Ejecuta los siguientes comandos en tu terminal:
+## 🚀 Características Pro
+- 🧠 **Ciclo OODA Integrado:** Análisis basado en fases militares de combate digital.
+- 🎙️ **Voz Táctica (TTS):** Alertas y bienvenida por voz en tiempo real.
+- 📋 **Reportes Automáticos:** Generación de informes de auditoría en Markdown.
+- 🛡️ **SecLists Aware:** Gestión dinámica de diccionarios de hacking.
+- 🧪 **Multi-Provider:** Soporta DeepSeek, Gemini, Anthropic y Groq.
+
+---
+
+## 📥 Instalación (Formato Pro)
 ```bash
 git clone https://github.com/kuromi04/AI-Haklab.git
 cd AI-Haklab
@@ -37,33 +41,17 @@ chmod +x install.sh
 
 ---
 
-## 🎮 Uso Táctico
-Para iniciar el agente en modo interactivo:
-```bash
-AI-Haklab
-```
-
-Para enviar una orden directa:
-```bash
-AI-Haklab "Analiza la red local y busca vulnerabilidades"
-```
-
-Para configurar tus API Keys:
-```bash
-AI-Haklab /menu
-```
-
----
-
-## 📜 Arsenal i-Haklab Integrado
-El agente tiene conciencia total de herramientas como:
-`Nmap`, `Metasploit`, `Sqlmap`, `Bettercap`, `Aircrack-ng`, `Hydra`, `Nikto`, y **más de 150 herramientas adicionales** del Hub de ivam3.
+## 📖 Roadmap 2026
+- [ ] **Módulo Guardián:** Monitoreo proactivo de red.
+- [ ] **Exportación PDF:** Reportes con diseño corporativo.
+- [ ] **Auto-Update:** Sincronización automática con el repo.
+- [ ] **Integración Metasploit RPC:** Control directo de consolas.
 
 ---
 
 ## 👤 Créditos
-- **Desarrollador:** [kuromi04](https://github.com/kuromi04)
-- **Arsenal Base:** [ivam3](https://github.com/ivam3) (i-Haklab Creator)
+- **Lead Developer:** [kuromi04](https://github.com/kuromi04)
+- **Arsenal Laboratory:** [ivam3](https://github.com/ivam3)
 
 ---
-*Este proyecto es para fines de auditoría de seguridad y ética. El uso indebido de estas herramientas es responsabilidad del usuario.*
+*Disclaimer: Esta herramienta debe ser usada únicamente con fines educativos y auditorías autorizadas. El autor no se hace responsable del mal uso.*
