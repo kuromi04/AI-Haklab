@@ -1,7 +1,7 @@
 <table>
   <tr>
     <td><img src="https://github.com/kuromi04/AI-Haklab/blob/23bd5ab7d5224549b5a532a809fb57478ae330df/df_df_a_c_f_e_v_user_view_video_mp_.gif" alt="AI-Haklab Demo" width="300"></td>
-    <td><img src="https://github.com/kuromi04/AI-Haklab/blob/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg" alt="AI-Haklab Banner" width="300"></td>
+    <td><img src="https://github.com/kuromi04/AI-Haklab/blob/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg(https://github.com/kuromi04/AI-Haklab/blob/7e2c3183924b15765148ef2e7a379b7d7280c802/Gemini_Generated_Image_uher3duher3duher.png)" alt="AI-Haklab Banner" width="300"></td>
   </tr>
 </table>
 
