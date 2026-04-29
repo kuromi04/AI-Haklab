@@ -1,7 +1,7 @@
 <table>
   <tr>
-    <td><img src="[URL_DE_TU_GIF](https://github.com/kuromi04/AI-Haklab/blob/23bd5ab7d5224549b5a532a809fb57478ae330df/df_df_a_c_f_e_v_user_view_video_mp_.gif)" alt="GIF de Demo" width="300"></td>
-    <td><img src="[URL_DE_TU_IMAGEN_BANNER](https://github.com/kuromi04/AI-Haklab/blob/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg)" alt="Banner de AI-Haklab" width="300"></td>
+    <td><img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/df_df_a_c_f_e_v_user_view_video_mp_.gif" alt="GIF de Demo" width="300"></td>
+    <td><img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg" alt="Banner de AI-Haklab" width="300"></td>
   </tr>
 </table>
 # 🕵️ AI-Haklab Pro v17.5
