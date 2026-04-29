@@ -22,7 +22,7 @@ BANNER = r"""
 /_/     \_\_| |_        | | | | (_| |   <| | (_| | |_) |
                    _____|_| |_|\__,_|_|\_\_|\__,_|_.__/ 
                   |______|                             
-   [bold blue]AI-HAKLAB - Tactical Copilot v17.0 [Gentle-AI Powered][/bold blue]
+   [bold blue]AI-HAKLAB - Tactical Hacker Engine v17.5 [Gentle-AI Powered][/bold blue]
 """
 
 CONFIG_PATH = "/data/data/com.termux/files/home/.ai-haklab/config.json"
@@ -43,7 +43,7 @@ def get_stats():
         inst = sum(1 for t in tools if subprocess.getstatusoutput(f"which {t}")[0] == 0)
         
         # Check Engram
-        engram_status = "[bold green]ON[/bold green]" if subprocess.getstatusoutput("which engram")[0] == 0 else "[bold red]OFF[/bold red]"
+        engram_status = "[bold green]ONLINE[/bold green]" if subprocess.getstatusoutput("which engram")[0] == 0 else "[bold red]OFFLINE[/bold red]"
         
         return inst, len(tools), engram_status
     except: return 0, 0, "[bold red]ERR[/bold red]"
@@ -62,8 +62,8 @@ def chat():
     
     inst, tot, engram = get_stats()
     console.print(Text.from_markup(BANNER, justify="center"))
-    console.print(Panel(f"[bold cyan]i-Haklab Hub:[/bold cyan] [bold green]{inst}[/bold green]/[bold blue]{tot}[/bold blue] | [bold yellow]OODA Loop: ACTIVO[/bold yellow] | [bold magenta]Engram:[/bold magenta] {engram}", border_style="blue"))
-    speak("Iniciando Copiloto Táctico AI Haklab. Ciclo O O D A activado. Sistema Engram detectado.")
+    console.print(Panel(f"[bold cyan]Arsenal i-Haklab:[/bold cyan] [bold green]{inst}[/bold green]/[bold blue]{tot}[/bold blue] | [bold yellow]OODA Loop: ACTIVO[/bold yellow] | [bold magenta]Engram:[/bold magenta] {engram}", border_style="blue"))
+    speak("Nodo de inteligencia AI Haklab activo. Ciclo O O D A sincronizado. Engram detectado. Esperando órdenes del operador.")
     
     with open("/data/data/com.termux/files/home/.ai-haklab/system_message.txt", "r") as f:
         sys_msg = f.read()
@@ -71,30 +71,30 @@ def chat():
     
     while True:
         try:
-            # Prompt de nivel Piloto
-            prompt = "\n[bold blue]┌──[[/bold blue][bold white]pilot@ai-haklab[/bold white][bold blue]]\n└─# [/bold blue]"
+            # Prompt de nivel Operador
+            prompt = "\n[bold blue]┌──[[/bold blue][bold white]hacker@ai-haklab[/bold white][bold blue]]\n└─# [/bold blue]"
             user_input = console.input(prompt)
             
             if not user_input.strip(): continue
             if user_input.lower() in ['salir', 'exit', 'quit']:
-                speak("Operación finalizada. Generando reporte de misión.")
+                speak("Desconexión del nodo. Generando reporte de intrusión.")
                 break
                 
             history.append({"role": "user", "content": user_input})
             full_response = ""
             
             with Live(console=console, refresh_per_second=12) as live:
-                live.update(Spinner("dots", text="[bold cyan] ANALIZANDO VECTOR OODA...[/bold cyan]", style="cyan"))
+                live.update(Spinner("dots", text="[bold cyan] ANALIZANDO VECTOR DE ATAQUE...[/bold cyan]", style="cyan"))
                 stream = client.chat.completions.create(model=p_data['model'], messages=history, stream=True)
                 for chunk in stream:
                     if chunk.choices[0].delta.content:
                         content = chunk.choices[0].delta.content
                         full_response += content
-                        live.update(Panel(Text(full_response, style="bold green"), title=f"[bold blue]Tactic: {p_data['name']}[/bold blue]", border_style="blue"))
+                        live.update(Panel(Text(full_response, style="bold green"), title=f"[bold blue]Strategy: {p_data['name']}[/bold blue]", border_style="blue"))
             
             history.append({"role": "assistant", "content": full_response})
             if len(full_response) < 200: speak(full_response)
-            else: speak("Análisis táctico completado. Piloto, proceda con la ejecución.")
+            else: speak("Análisis completado. Operador, proceda con el pwnage.")
             
         except KeyboardInterrupt: break
         except Exception as e: console.print(f"[bold red][!] ERROR:[/bold red] {str(e)}")

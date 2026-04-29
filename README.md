@@ -6,7 +6,7 @@
 </table>
 
 # 🕵️ AI-Haklab Pro v17.5 ⚡ [Gentle-AI Powered]
-> **The Ultimate Tactical AI Copilot for i-Haklab Laboratory.**
+> **The Ultimate Tactical Hacker Engine for i-Haklab Laboratory.**
 
 **El primer agente de IA nativo para Termux diseñado específicamente para Pentesting y Operaciones Tácticas.**
 
@@ -15,17 +15,17 @@ AI-Haklab es un ecosistema pionero desarrollado por **@ivam3**, marcando un hito
 ---
 
 ## 🏆 Hito Histórico
-Este proyecto es el **primer agente de Pentesting IA nativo para Termux**. Ha sido diseñado para maximizar las capacidades de auditoría desde dispositivos móviles, integrando un ciclo OODA (Observar, Orientar, Decidir, Actuar) para guiar al auditor en cada fase del ataque.
+Este proyecto es el **primer agente de Pentesting IA nativo para Termux**. Ha sido diseñado para maximizar las capacidades de auditoría desde dispositivos móviles, integrando un ciclo OODA (Observar, Orientar, Decidir, Actuar) para guiar al operador en cada fase de la intrusión.
 
 ---
 
 ## 🚀 Nuevas Características (Integración Gentle-AI)
-* 🧠 **Persistent Memory (Engram):** El agente recuerda hallazgos, vulnerabilidades y decisiones tácticas entre sesiones.
-* 👨‍🏫 **Teaching Persona:** Un mentor senior que no solo ejecuta, sino que enseña la teoría detrás de cada flag y técnica.
+* 🧠 **Persistent Memory (Engram):** El agente recuerda hallazgos, vulnerabilidades y vectores de ataque entre sesiones.
+* 👨‍🏫 **Hacker Mentorship:** Un mentor de la vieja escuela que forma a aprendices, explicando la anatomía de cada exploit y técnica.
 * 📋 **Skill Registry:** Sistema modular de habilidades en `skills/` (Recon, Exploit, Report, MCP).
 * 🛡️ **Proactive Backups:** Sistema automático de snapshots de configuración para evitar pérdida de datos.
-* 🌀 **OODA Engine v17:** Motor optimizado para análisis de vectores de ataque en tiempo real.
-* 🎙️ **Voz Táctica (TTS):** Alertas y bienvenida por voz en tiempo real.
+* 🌀 **OODA Engine v17.5:** Motor optimizado para análisis de vectores de ataque con terminología L33t.
+* 🎙️ **Voz Táctica (TTS):** Alertas y bienvenida por voz orientadas al operador.
 
 ---
 
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 ---
 
 ## 📖 Uso Táctico
-Para iniciar el copiloto:
+Para iniciar el motor hacker:
 ```bash
 AI-Haklab
 ```
@@ -74,7 +74,7 @@ Comandos especiales:
 - `/menu`: Configuración de proveedores (OpenAI, Anthropic, Google).
 - `/update`: Sincronización con el repositorio oficial.
 - `/backup`: Respaldo manual de la configuración.
-- `/clean`: Limpieza de temporales y reportes.
+- `/clean`: Limpieza de temporales y reportes de intrusión.
 
 ---
 
