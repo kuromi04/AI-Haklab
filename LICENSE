@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 @ivam3 - Creador original de AI-Haklab (Primer Agente IA nativo para Termux)
+Copyright (c) 2026 @kuromi04 - Creador original de AI-Haklab (Primer Agente IA nativo para Termux)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9,6 +9,9 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, provided that the author is credited in all distributions
 and derivative works.
+
+RECONOCIMIENTO DE COMUNIDAD:
+Este software ha sido desarrollado por @kuromi04 como parte de la comunidad 'ivan3bycinderella', utilizando el entorno de laboratorio 'i-Haklab' proporcionado por ivam3. Cualquier distribución o derivado debe mantener este reconocimiento intacto.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
