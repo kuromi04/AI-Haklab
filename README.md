@@ -1,10 +1,6 @@
 # 🕵️ AI-Haklab Pro v17.5
 > **The Ultimate Tactical AI Copilot for i-Haklab Laboratory.**
 
-<p align="center">
-  <img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg" width="80%" alt="AI-Haklab Banner">
-</p>
-
 ![Status](https://img.shields.io/badge/Status-Active-green?style=for-the-badge)
 ![Engine](https://img.shields.io/badge/Engine-OODA--Tactical-blue?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Security-Advanced-red?style=for-the-badge)
