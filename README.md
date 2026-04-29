@@ -1,8 +1,8 @@
-# 🕵️ AI-Haklab Pro v15.6
+# 🕵️ AI-Haklab Pro v17.0
 > **The Ultimate AI-Powered Pentesting Suite for i-Haklab Laboratory.**
 
 ![i-Haklab Banner](https://img.shields.io/badge/Arsenal-i--Haklab-blue?style=for-the-badge&logo=linux)
-![DeepSeek Engine](https://img.shields.io/badge/AI--Engine-DeepSeek-magenta?style=for-the-badge)
+![OODA Tactical Engine](https://img.shields.io/badge/AI--Engine-DeepSeek-magenta?style=for-the-badge)
 ![Termux Optimized](https://img.shields.io/badge/Platform-Termux-orange?style=for-the-badge)
 
 ## ⚡ Descripción
