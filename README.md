@@ -1,9 +1,6 @@
-<table>
-  <tr>
-    <td><img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/df_df_a_c_f_e_v_user_view_video_mp_.gif" alt="AI-Haklab Demo" width="300"></td>
-    <td><img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg" alt="AI-Haklab Banner" width="300"></td>
-  </tr>
-</table>
+<div align="center">
+  <img src="https://github.com/kuromi04/AI-Haklab/raw/f68ead3d35f04b32717e986cd2ff56431ab3005b/Gemini_Generated_Image_uher3duher3duher.png" width="100%" alt="AI-Haklab Banner">
+</div>
 
 # 🕵️ AI-Haklab Pro v17.5: Tactical Hacker Engine
 > **Pionero absoluto en la adaptación de ecosistemas de IA avanzada para el Pentesting Nativo en Termux.**
