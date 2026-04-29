@@ -42,7 +42,7 @@ A diferencia de otras herramientas de automatización, AI-Haklab Pro está dise�
 ## 🛠 Instalación y Requerimientos
 
 ### Requisitos Técnicos
-1.  **Termux:** (Recomendado versión de F-Droid).
+1.  **Termux:** (Recomendado versión siempre desde su github oficial de termux https://github.com/termux/termux-app).
 2.  **Entorno i-Haklab:** El agente está optimizado para las herramientas del laboratorio de **ivam3**.
 3.  **Engram:** Para habilitar la memoria persistente.
 4.  **Termux-API:** Para la síntesis de voz táctica.
