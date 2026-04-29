@@ -65,3 +65,9 @@ Este es un trabajo de adaptación pionero. Se reconoce la inspiración en el pro
 
 ---
 *Forjado en el laboratorio i-Haklab, bajo la tutela de ivan3, para el futuro del hacking móvil.*
+<table>
+  <tr>
+    <td><img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/df_df_a_c_f_e_v_user_view_video_mp_.gif" alt="AI-Haklab Demo" width="300"></td>
+    <td><img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg" alt="AI-Haklab Banner" width="300"></td>
+  </tr>
+</table>
