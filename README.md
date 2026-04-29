@@ -1,7 +1,6 @@
 <div align="center">
   <img src="https://github.com/kuromi04/AI-Haklab/raw/f68ead3d35f04b32717e986cd2ff56431ab3005b/Gemini_Generated_Image_uher3duher3duher.png" width="100%" alt="AI-Haklab Banner">
 </div>
-
 # 🕵️ AI-Haklab Pro v17.5: Tactical Hacker Engine
 > **Pionero absoluto en la adaptación de ecosistemas de IA avanzada para el Pentesting Nativo en Termux.**
 
