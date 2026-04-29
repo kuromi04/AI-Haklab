@@ -9,6 +9,7 @@ from rich.panel import Panel
 from rich.text import Text
 from rich.live import Live
 from rich.spinner import Spinner
+from backup import create_backup
 
 # AI-Haklab Pro v17.0 - OODA Tactical Edition
 console = Console()
@@ -21,7 +22,7 @@ BANNER = r"""
 /_/     \_\_| |_        | | | | (_| |   <| | (_| | |_) |
                    _____|_| |_|\__,_|_|\_\_|\__,_|_.__/ 
                   |______|                             
-   [bold blue]AI-HAKLAB - Tactical Copilot v17.0 [OODA Enabled][/bold blue]
+   [bold blue]AI-HAKLAB - Tactical Copilot v17.0 [Gentle-AI Powered][/bold blue]
 """
 
 CONFIG_PATH = "/data/data/com.termux/files/home/.ai-haklab/config.json"
@@ -40,8 +41,12 @@ def get_stats():
         with open(TOOLS_LIST_PATH, 'r') as f:
             tools = [l.strip() for l in f if l.strip()]
         inst = sum(1 for t in tools if subprocess.getstatusoutput(f"which {t}")[0] == 0)
-        return inst, len(tools)
-    except: return 0, 0
+        
+        # Check Engram
+        engram_status = "[bold green]ON[/bold green]" if subprocess.getstatusoutput("which engram")[0] == 0 else "[bold red]OFF[/bold red]"
+        
+        return inst, len(tools), engram_status
+    except: return 0, 0, "[bold red]ERR[/bold red]"
 
 # Cargar Configuración
 with open(CONFIG_PATH, 'r') as f: config = json.load(f)
@@ -52,10 +57,13 @@ from openai import OpenAI
 client = OpenAI(api_key=api_key, base_url=p_data['base_url'])
 
 def chat():
-    inst, tot = get_stats()
+    # Proactive Backup (Gentle-AI style)
+    create_backup("/data/data/com.termux/files/home/.ai-haklab", "/data/data/com.termux/files/home/.ai-haklab/backups")
+    
+    inst, tot, engram = get_stats()
     console.print(Text.from_markup(BANNER, justify="center"))
-    console.print(Panel(f"[bold cyan]i-Haklab Hub:[/bold cyan] [bold green]{inst}[/bold green]/[bold blue]{tot}[/bold blue] | [bold yellow]OODA Loop: ACTIVO[/bold yellow]", border_style="blue"))
-    speak("Iniciando Copiloto Táctico AI Haklab. Ciclo O O D A activado.")
+    console.print(Panel(f"[bold cyan]i-Haklab Hub:[/bold cyan] [bold green]{inst}[/bold green]/[bold blue]{tot}[/bold blue] | [bold yellow]OODA Loop: ACTIVO[/bold yellow] | [bold magenta]Engram:[/bold magenta] {engram}", border_style="blue"))
+    speak("Iniciando Copiloto Táctico AI Haklab. Ciclo O O D A activado. Sistema Engram detectado.")
     
     with open("/data/data/com.termux/files/home/.ai-haklab/system_message.txt", "r") as f:
         sys_msg = f.read()
