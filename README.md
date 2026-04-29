@@ -1,4 +1,4 @@
-![Image Alt]([image_url](([https://github.com/kuromi04/AI-Haklab/blob/55fc28173ca5f641be8c7da6e7a64f8a246ed16d/df_df_a_c_f_e_v_user_view_video_mp_.mp4](https://github.com/kuromi04/AI-Haklab/blob/bde4a4b142456c634a0406e8d217353b78b17f29/df_df_a_c_f_e_v_user_view_video_mp_.gif))
+![Image Alt]([image_url]([https://github.com/kuromi04/AI-Haklab/blob/55fc28173ca5f641be8c7da6e7a64f8a246ed16d/df_df_a_c_f_e_v_user_view_video_mp_.mp4](https://github.com/kuromi04/AI-Haklab/blob/bde4a4b142456c634a0406e8d217353b78b17f29/df_df_a_c_f_e_v_user_view_video_mp_.gif))
 # 🕵️ AI-Haklab Pro v17.5
 > **The Ultimate Tactical AI Copilot for i-Haklab Laboratory.**
 
