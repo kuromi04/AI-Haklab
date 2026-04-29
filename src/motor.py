@@ -45,8 +45,20 @@ def get_stats():
         # Check Engram
         engram_status = "[bold green]ONLINE[/bold green]" if subprocess.getstatusoutput("which engram")[0] == 0 else "[bold red]OFFLINE[/bold red]"
         
-        return inst, len(tools), engram_status
-    except: return 0, 0, "[bold red]ERR[/bold red]"
+        # Check Battery (Termux-API)
+        try:
+            batt_data = json.loads(subprocess.getoutput("termux-battery-status"))
+            batt_pct = batt_data.get('percentage', 0)
+            batt_color = "green" if batt_pct > 30 else "yellow" if batt_pct > 15 else "red"
+            batt_status = f"[bold {batt_color}]{batt_pct}%[/bold {batt_color}]"
+        except: batt_status = "[bold yellow]N/A[/bold yellow]"
+        
+        # Check VPN (tun0 interface)
+        vpn_check = subprocess.getstatusoutput("ip addr show tun0")[0]
+        vpn_status = "[bold green]SECURED[/bold green]" if vpn_check == 0 else "[bold red]EXPOSED[/bold red]"
+        
+        return inst, len(tools), engram_status, batt_status, vpn_status
+    except: return 0, 0, "[bold red]ERR[/bold red]", "[bold red]ERR[/bold red]", "[bold red]ERR[/bold red]"
 
 # Cargar Configuración
 with open(CONFIG_PATH, 'r') as f: config = json.load(f)
@@ -94,10 +106,13 @@ def chat():
     # Proactive Backup (Gentle-AI style)
     create_backup("/data/data/com.termux/files/home/.ai-haklab", "/data/data/com.termux/files/home/.ai-haklab/backups")
     
-    inst, tot, engram = get_stats()
+    inst, tot, engram, batt, vpn = get_stats()
     console.print(Text.from_markup(BANNER, justify="center"))
-    console.print(Panel(f"[bold cyan]Arsenal i-Haklab:[/bold cyan] [bold green]{inst}[/bold green]/[bold blue]{tot}[/bold blue] | [bold yellow]OODA Loop: ACTIVO[/bold yellow] | [bold magenta]Engram:[/bold magenta] {engram}", border_style="blue"))
-    speak("Nodo de inteligencia AI Haklab activo. Ciclo O O D A sincronizado. Engram detectado. Esperando órdenes del operador.")
+    
+    stats_table = f"[bold cyan]Arsenal:[/bold cyan] {inst}/{tot} | [bold magenta]Engram:[/bold magenta] {engram} | [bold yellow]Bat:[/bold yellow] {batt} | [bold blue]VPN:[/bold blue] {vpn}"
+    console.print(Panel(stats_table, title="[bold yellow]OODA NODE STATUS[/bold yellow]", border_style="blue"))
+    
+    speak(f"Nodo activo. Batería al {batt.split(']')[1].split('%')[0] if '%' in batt else 'desconocido'} por ciento. Red {'protegida' if 'SECURED' in vpn else 'expuesta'}. Esperando órdenes.")
     
     with open("/data/data/com.termux/files/home/.ai-haklab/system_message.txt", "r") as f:
         sys_msg = f.read()
