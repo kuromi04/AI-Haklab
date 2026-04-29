@@ -14,7 +14,6 @@
 ## ⚡ El Nuevo Estándar en Pentesting con IA
 **AI-Haklab Pro** es un sistema de inteligencia táctica diseñado para operar en conjunto con el laboratorio **i-Haklab** de @ivam3. A diferencia de otros agentes, AI-Haklab Pro aplica el **Ciclo OODA** (Observe, Orient, Decide, Act) y asume un rol de **Copiloto**, tratando al usuario como el **Piloto** de la operación.
 
-## 🚀 Demo de Funcionamiento
 <div align="center">
   <img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/df_df_a_c_f_e_v_user_view_video_mp_.gif" width="600" alt="GIF de Demo">
 </div>
