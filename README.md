@@ -1,18 +1,9 @@
-<div align="center">
-  <img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg" width="100%" alt="AI-Haklab Banner">
-  
-  <h1>AI-Haklab: Termux Pentest Automation Agent</h1>
-  <p><b>Agente de automatización para Pentest en Termux basado en i-Haklab v3.11.</b></p>
-</div>
-
----
-
-## 🚀 Demo de Funcionamiento
-A continuación se muestra el agente en acción, realizando escaneos y ejecuciones automatizadas:
-
-<div align="center">
-  <img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/df_df_a_c_f_e_v_user_view_video_mp_.gif" width="600" alt="AI-Haklab Demo">
-</div>
+<table>
+  <tr>
+    <td><img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/df_df_a_c_f_e_v_user_view_video_mp_.gif" alt="GIF de Demo" width="300"></td>
+    <td><img src="https://github.com/kuromi04/AI-Haklab/raw/23bd5ab7d5224549b5a532a809fb57478ae330df/5154521253187095542.jpg" alt="Banner de AI-Haklab" width="300"></td>
+  </tr>
+</table>
 
 ## 📌 Características
 * **Basado en Framework v3.11:** Estructura sólida y probada.
