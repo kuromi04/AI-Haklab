@@ -3,9 +3,9 @@
 </div>
 
 # 🕵️ AI-Haklab Pro v17.5: Tactical Hacker Engine
-> **Pionero absoluto en la adaptación de ecosistemas de IA avanzada para el Pentesting Nativo en Termux.**
+> **Implementación de vanguardia en la adaptación de ecosistemas de IA avanzada para el Pentesting Nativo en Termux.**
 
-## 🏆 Un Hito en la Ciberseguridad Móvil
+## 🏆 Nueva Era en la Ciberseguridad Móvil
 Este proyecto marca un precedente histórico: **@kuromi04** es el primer desarrollador en portar, adaptar y evolucionar los conceptos de arquitectura de IA (inspirados en [Gentle-AI](https://github.com/Gentleman-Programming/gentle-ai.git)) para que funcionen de forma 100% nativa y optimizada dentro del entorno **Termux**. 
 
 AI-Haklab Pro no es solo un script; es la primera implementación móvil de un agente con memoria persistente, registro de habilidades y una filosofía de mentoría hacker.
@@ -62,7 +62,7 @@ Proyecto bajo licencia MIT.
 
 **Copyright (c) 2026 @kuromi04**
 
-Este es un trabajo de adaptación pionero. Se reconoce la inspiración en el proyecto **Gentle-AI** de Gentleman Programming y se agradece infinitamente a la comunidad **ivam3bycinderella**. Cualquier derivado debe reconocer a **@kuromi04** como el autor de la adaptación nativa para Termux.
+Este es un trabajo de adaptación original y de vanguardia. Se reconoce la inspiración en el proyecto **Gentle-AI** de Gentleman Programming y se agradece infinitamente a la comunidad **ivam3bycinderella**. Cualquier derivado debe reconocer a **@kuromi04** como el autor de la adaptación nativa para Termux.
 
 ---
 
