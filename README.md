@@ -57,6 +57,38 @@ AI-Haklab
 
 ---
 
+## 🎯 Casos de Uso y Ejemplos de Comandos
+
+AI-Haklab Pro v17.5 implementa selección dinámica de cerebro (SDD) según el contexto de tu consulta:
+
+### 1. Fase de Reconocimiento (Cambio Dinámico a Cerebro RECON)
+Cuando ingresas palabras clave de escaneo o recopilación, el motor cambia a un modelo rápido y eficiente (como Gemini Flash):
+```bash
+└─# Realiza un análisis pasivo del dominio objetivo y busca subdominios activos
+```
+*El sistema responderá utilizando el módulo RECON.*
+
+### 2. Análisis Estratégico y Explotación (Cerebro STRATEGY)
+Para consultas complejas, desarrollo de scripts de explotación o análisis de binarios corruptos, el motor activa el modelo estratégico (como DeepSeek):
+```bash
+└─# Adapta un script de desbordamiento de búfer para que corra de forma nativa en la arquitectura ARM64 de Termux
+```
+
+### 3. Persistencia de Memoria en el Engram
+Guarda información vital que desees que el agente recuerde en futuras sesiones de hacking:
+```bash
+└─# Guarda en el Engram que el firewall del objetivo bloquea peticiones HTTP con payloads de SQLi comunes
+```
+
+### 4. Finalización y Reporte MITRE ATT&CK
+Para salir del nodo táctico y generar automáticamente tu reporte técnico estructurado:
+```bash
+└─# salir
+```
+*El reporte se guardará en `~/AI-Haklab-Reports/intrusion_report_[timestamp].md`.*
+
+---
+
 ## ⚖️ Licencia y Autoría
 Proyecto bajo licencia MIT.
 
