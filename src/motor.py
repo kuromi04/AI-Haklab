@@ -75,9 +75,17 @@ def select_brain(user_input):
         client, data = get_client('openrouter')
         if client: return client, data, "RECON (Llama-Free)"
     
-    # Default/Exploit mode (DeepSeek or current)
+    # Default/Exploit mode: First try current provider (Mistral)
     client, data = get_client(config['current_provider'])
     if client: return client, data, f"STRATEGY ({data['name']})"
+    
+    # Fallback 1: Gemini
+    client, data = get_client('gemini')
+    if client: return client, data, "FALLBACK (Gemini)"
+    
+    # Fallback 2: Antigravity
+    client, data = get_client('antigravity')
+    if client: return client, data, "FALLBACK (Antigravity)"
     
     # Last resort fallback
     client, data = get_client('gemini')

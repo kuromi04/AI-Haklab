@@ -1,5 +1,5 @@
 {
-  "current_provider": "deepseek",
+  "current_provider": "mistral",
   "providers": {
     "deepseek": {
       "name": "DeepSeek (Default)",
@@ -12,6 +12,12 @@
       "api_key": "apikey",
       "base_url": "google",
       "model": "gemini-2.0-flash-lite"
+    },
+    "antigravity": {
+      "name": "Antigravity Default",
+      "api_key": "apikey",
+      "base_url": "google",
+      "model": "gemini-1.5-flash"
     },
     "groq": {
       "name": "Groq (Llama 3)",
