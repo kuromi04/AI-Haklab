@@ -13,7 +13,7 @@ from backup import create_backup
 from stats_utils import get_stats
 from validation_utils import ConfigValidator
 
-# AI-Haklab Pro v17.0 - OODA Tactical Edition
+# AI-Haklab Pro v17.5 - OODA Tactical Edition
 console = Console()
 
 BANNER = r"""
@@ -34,11 +34,38 @@ os.makedirs(REPORTS_DIR, exist_ok=True)
 # Session Metadata
 SESSION_START = datetime.now()
 
+def get_current_operator():
+    """Detects current user dynamically from system environment or config."""
+    try:
+        user = os.environ.get("USER") or subprocess.getoutput("whoami").strip()
+        if user and user != "unknown":
+            return f"@{user}"
+    except: pass
+    return "@operator"
+
+OPERATOR = get_current_operator()
+
 def speak(text):
     try:
         clean = text.replace('`', '').replace('*', '').replace('[', '').replace(']', '')
         subprocess.run(['termux-tts-speak', clean], stderr=subprocess.DEVNULL)
     except: pass
+
+def listen_voice():
+    """Captures voice input using Termux-API termux-speech-to-text."""
+    try:
+        console.print("[bold yellow][🎙️] Escuchando comando de voz... (habla al micrófono)[/bold yellow]")
+        res = subprocess.run(['termux-speech-to-text'], capture_output=True, text=True, timeout=10)
+        text = res.stdout.strip()
+        if text:
+            console.print(f"[bold green][🎤 Reconocido]:[/bold green] {text}")
+            return text
+        else:
+            console.print("[bold red][!] No se detectó audio o el reconocimiento estuvo vacío.[/bold red]")
+            return ""
+    except Exception as e:
+        console.print(f"[bold red][!] Error al acceder al micrófono via Termux-API: {str(e)}[/bold red]")
+        return ""
 
 # Cargar y Validar Configuración
 validator = ConfigValidator(CONFIG_PATH)
@@ -99,7 +126,7 @@ def generate_report(history):
     
     # Metadata and Header
     report_content = f"""# 🛡️ Reporte Táctico de Intrusión
-**Operador:** @kuromi04
+**Operador:** {OPERATOR}
 **Inicio:** {SESSION_START.strftime("%Y-%m-%d %H:%M:%S")}
 **Fin:** {session_end.strftime("%Y-%m-%d %H:%M:%S")}
 **Duración:** {str(session_end - SESSION_START).split('.')[0]}
@@ -133,7 +160,7 @@ def generate_report(history):
         report_content += "\n\n---\n\n## 📋 Registro Cronológico (Logs)\n"
         for msg in history:
             if msg['role'] == 'system': continue
-            role_label = "🟢 [OPERADOR]" if msg['role'] == 'user' else "⚪ [ASISTENTE]"
+            role_label = f"🟢 [{OPERATOR}]" if msg['role'] == 'user' else "⚪ [ASISTENTE]"
             report_content += f"\n### {role_label}\n{msg['content']}\n"
 
         with open(report_file, "w") as f:
@@ -149,21 +176,25 @@ def chat():
     inst, tot, engram, batt, vpn = get_stats()
     console.print(Text.from_markup(BANNER, justify="center"))
     
-    stats_table = f"[bold cyan]Arsenal:[/bold cyan] {inst}/{tot} | [bold magenta]Engram:[/bold magenta] {engram} | [bold yellow]Bat:[/bold yellow] {batt} | [bold blue]VPN:[/bold blue] {vpn}"
+    stats_table = f"[bold cyan]Arsenal:[/bold cyan] {inst}/{tot} | [bold magenta]Engram:[/bold magenta] {engram} | [bold yellow]Bat:[/bold yellow] {batt} | [bold blue]VPN:[/bold blue] {vpn} | [bold green]Operador:[/bold green] {OPERATOR}"
     console.print(Panel(stats_table, title="[bold yellow]OODA NODE STATUS[/bold yellow]", border_style="blue"))
     
-    speak(f"Nodo activo. Batería al {batt.split(']')[1].split('%')[0] if '%' in batt else 'desconocido'} por ciento. Red {'protegida' if 'SECURED' in vpn else 'expuesta'}. Esperando órdenes.")
+    speak(f"Nodo activo. Operador {OPERATOR.replace('@', '')}. Batería al {batt.split(']')[1].split('%')[0] if '%' in batt else 'desconocido'} por ciento. Red {'protegida' if 'SECURED' in vpn else 'expuesta'}. Esperando órdenes.")
     
     with open("/data/data/com.termux/files/home/.ai-haklab/system_message.txt", "r") as f:
-        sys_msg = f.read()
+        sys_msg = f.read().replace("@kuromi04", OPERATOR)
     history = [{"role": "system", "content": sys_msg}]
     
     while True:
         try:
             # Prompt de nivel Operador
-            prompt = "\n[bold blue]┌──[[/bold blue][bold white]hacker@ai-haklab[/bold white][bold blue]]\n└─# [/bold blue]"
+            prompt = f"\n[bold blue]┌──[[/bold blue][bold white]{OPERATOR.replace('@', '')}@ai-haklab[/bold white][bold blue]] (usa /voice para hablar)\n└─# [/bold blue]"
             user_input = console.input(prompt)
             
+            if user_input.strip() == "/voice":
+                user_input = listen_voice()
+                if not user_input: continue
+
             if not user_input.strip(): continue
             if user_input.lower() in ['salir', 'exit', 'quit']:
                 speak("Operación terminada. Generando reporte táctico basado en MITRE ATT&CK.")
@@ -197,7 +228,7 @@ def chat():
                         if chunk.choices[0].delta.content:
                             content = chunk.choices[0].delta.content
                             full_response += content
-                            live.update(Panel(Text(full_response, style="bold green"), title=f"[bold blue]Brain: {mode_name}[/bold blue]", border_style="blue"))
+                            live.update(Panel(Text(full_response, style="bold green"), title=f"[bold blue]Brain: {mode_name}[/bold blue]", border_style="bold green"))
             
             history.append({"role": "assistant", "content": full_response})
             if len(full_response) < 200: speak(full_response)

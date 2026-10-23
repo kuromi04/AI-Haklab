@@ -4,7 +4,7 @@
 
 CONFIG_FILE="$HOME/.ai-haklab/config.json"
 MOTOR_PATH="$HOME/.ai-haklab/src/motor.py"
-REPO_DIR="$HOME/AI-Haklab-Repo"
+REPO_DIR="$HOME/Projects/AI-Haklab-Repo"
 
 # COMANDOS DE GESTIÓN
 if [ "$1" == "/menu" ]; then
@@ -28,7 +28,7 @@ elif [ "$1" == "/backup" ]; then
     echo -e "\e[1;32m[+] Respaldo guardado en Descargas/AI-Haklab-Backup\e[0m"
     exit 1
 elif [ "$1" == "/work" ]; then
-    cd ~/i-Haklab-Workspace
+    cd "$HOME/Projects/i-Haklab-Workspace"
     echo -e "\e[1;32m[+] Entrando al Espacio de Trabajo Táctico.\e[0m"
     exec $SHELL
 fi
