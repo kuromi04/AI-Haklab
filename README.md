@@ -23,7 +23,8 @@ Este avance tecnológico no habría sido posible sin la guía y el ecosistema pr
 He adaptado los pilares de Gentle-AI para la terminal móvil más potente:
 *   🧠 **Termux Engram Sync:** Primer sistema de memoria persistente para hacking en dispositivos móviles.
 *   📋 **Mobile Skill Registry:** Librería modular de tácticas de pentesting (`skills/`) optimizada para procesadores ARM.
-*   🔬 **Integración REA (Reverse Engineer Anything):** Soporte de ingeniería inversa nativo en Termux y servidor MCP con [rea-termux](https://github.com/kuromi04/rea-termux).
+*   🛡️ **AegisForge Mobile Reversing Suite:** Orquestador táctico de ingeniería inversa nativo para Termux ([AegisForge](https://github.com/kuromi04/AegisForge)) integrando Radare2, JADX, APKTool y REA con servidor MCP.
+*   🔬 **Integración REA (Reverse Engineer Anything):** Soporte de análisis estático multi-plataforma y menú 3D Obsidian Neural ([rea-termux](https://github.com/kuromi04/rea-termux)).
 *   🎙️ **Control por Voz (/voice):** Integración nativa con `termux-speech-to-text` de Termux-API para dictado táctico de comandos.
 *   👨‍🏫 **Hacker Mentor Persona:** El dæmon táctico que educa al operador en tiempo real, transformando la experiencia de aprendizaje en Termux.
 *   🛡️ **Snapshots Proactivos:** Protección de datos y configuraciones en el almacenamiento local de Android.
