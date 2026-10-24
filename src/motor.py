@@ -195,6 +195,31 @@ def chat():
                 user_input = listen_voice()
                 if not user_input: continue
 
+            # COMANDO TÁCTICO: Integración directa con REA (Reverse Engineering)
+            if user_input.strip().startswith("/rea"):
+                rea_cmd = user_input.strip()[4:].strip()
+                if not rea_cmd:
+                    console.print("[bold yellow][i] Uso: /rea <comando> (ej: /rea doctor, /rea analyze <path>, /rea menu)[/bold yellow]")
+                    continue
+                if rea_cmd == "menu":
+                    console.print("[bold cyan][+] Levantando Menú 3D Neural de REA en segundo plano...[/bold cyan]")
+                    subprocess.Popen(["rea-menu"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                    console.print("[bold green][✔] Menú interactivo abierto en http://localhost:8888[/bold green]")
+                    continue
+
+                full_cmd = f"rea {rea_cmd}"
+                console.print(f"[bold cyan][⚡ REA TACTICAL EXTREMITY]:[/bold cyan] [white]{full_cmd}[/white]")
+                try:
+                    with console.status("[bold green]Ejecutando motor de ingeniería inversa...[/bold green]"):
+                        res = subprocess.run(full_cmd, shell=True, capture_output=True, text=True, timeout=60)
+                    out = (res.stdout or "") + (res.stderr or "")
+                    console.print(Panel(Text(out.strip() or "Ejecutado sin salida."), title=f"[bold green]REA OUTPUT ({res.returncode})[/bold green]", border_style="green"))
+                    history.append({"role": "user", "content": f"Ejecuté comando de ingeniería inversa: {full_cmd}"})
+                    history.append({"role": "assistant", "content": f"Salida del análisis:\n```\n{out.strip()}\n```"})
+                except Exception as e:
+                    console.print(f"[bold red][!] Error al invocar REA: {str(e)}[/bold red]")
+                continue
+
             if not user_input.strip(): continue
             if user_input.lower() in ['salir', 'exit', 'quit']:
                 speak("Operación terminada. Generando reporte táctico basado en MITRE ATT&CK.")
